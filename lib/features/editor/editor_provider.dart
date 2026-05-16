@@ -121,7 +121,7 @@ class EditorNotifier extends StateNotifier<EditorState> {
       );
       await file.writeAsBytes(imageBytes);
 
-      await Share.shareXFiles([XFile(file.path)]);
+      await SharePlus.instance.share(ShareParams(files: [XFile(file.path)]));
     } catch (_) {
       // Share cancelled or failed
     }
